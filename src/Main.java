@@ -1,17 +1,22 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     private static Scanner scanner  = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Enter count:");
-        int count = scanner.nextInt();
-        scanner.nextLine();
-
-        int[] returnedArray = readIntegers(count);
-        int returnedMin = findMin(returnedArray);
-
-        System.out.println("min = " + returnedMin);
+        int[] testArray = {1,5,3,7,11,15};
+        System.out.println(Arrays.toString(testArray));
+        reverse(testArray);
+        System.out.println(Arrays.toString(testArray));
+//        System.out.println("Enter count:");
+//        int count = scanner.nextInt();
+//        scanner.nextLine();
+//
+//        int[] returnedArray = readIntegers(count);
+//        int returnedMin = findMin(returnedArray);
+//
+//        System.out.println("min = " + returnedMin);
 
 //        int myIntValue = 10;
 //        int anotherIntValue = myIntValue;
@@ -39,27 +44,37 @@ public class Main {
 //        System.out.println("anotherArray after modify = " + Arrays.toString(anotherArray));
     }
 
-    private static int[] readIntegers(int count) {
-        int[] array = new int[count];
-        for(int i=0;i<array.length;i++) {
-            System.out.println("Enter a number:");
-            int number = scanner.nextInt();
-            scanner.nextLine();
-            array[i] = number;
+    private static void reverse(int[] array) {
+        int maxIndex = array.length -1;
+        int halfLength = array.length / 2;
+        for(int i=0;i<halfLength; i++) {
+            int temp = array[i];
+            array[i] = array[maxIndex -i];
+            array[maxIndex -i] = temp;
         }
-        return array;
     }
 
-    private static int findMin(int[] array) {
-        int min = Integer.MAX_VALUE;
-        for(int i=0;i<array.length;i++) {
-            int value = array[i];
-            if (value < min) {
-                min = value;
-            }
-        }
-        return min;
-    }
+//    private static int[] readIntegers(int count) {
+//        int[] array = new int[count];
+//        for(int i=0;i<array.length;i++) {
+//            System.out.println("Enter a number:");
+//            int number = scanner.nextInt();
+//            scanner.nextLine();
+//            array[i] = number;
+//        }
+//        return array;
+//    }
+//
+//    private static int findMin(int[] array) {
+//        int min = Integer.MAX_VALUE;
+//        for(int i=0;i<array.length;i++) {
+//            int value = array[i];
+//            if (value < min) {
+//                min = value;
+//            }
+//        }
+//        return min;
+//    }
 //
 //    private static void modifyArray(int[] array) {
 //
